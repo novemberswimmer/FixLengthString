@@ -9,8 +9,9 @@ public class App
     public static void main( String[] args )
     {
         Message msg = new Message();
-        msg.setFirstName("Annie");
-        msg.setLastName("Lucas");
-        System.out.println( msg.messageToString() + ":");
+        System.out.println("#" + msg.getFixLengthString() + "#");
+        msg.setFirstName("Test");
+        msg.setLastName("Lastname");
+        System.out.println("#"+ msg.messageToString() + "#");
     }
 }

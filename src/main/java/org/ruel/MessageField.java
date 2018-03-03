@@ -26,6 +26,14 @@ public class MessageField {
         return new MessageField(ValueType.NUMBER, null, value, offset, length);
     }
 
+    public Integer getOffset() {
+        return offset;
+    }
+
+    public Integer getLength() {
+        return length;
+    }
+
     public void setValue(Object value) {
         if (ValueType.CHARACTER.equals(valueType)){
             stringValue = (String) value;
