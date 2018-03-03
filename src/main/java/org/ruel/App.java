@@ -12,6 +12,7 @@ public class App
         System.out.println("#" + msg.getFixLengthString() + "#");
         msg.setFirstName("Test");
         msg.setLastName("Lastname");
+        msg.setGender("M");
         System.out.println("#"+ msg.messageToString() + "#");
     }
 }

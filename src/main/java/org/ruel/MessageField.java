@@ -1,6 +1,7 @@
 package org.ruel;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class MessageField {
     private String stringValue;
@@ -44,7 +45,7 @@ public class MessageField {
 
     public String paddedValue(){
         if (ValueType.NUMBER.equals(this.valueType)){
-            return String.format("%0" + this.length + "f", this.numberValue);
+            return String.format("%0" + this.length + ".2f", this.numberValue.setScale(2, RoundingMode.CEILING));
         }
         return String.format("%-" + this.length +"s", this.stringValue);
     }

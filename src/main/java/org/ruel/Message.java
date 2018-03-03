@@ -6,12 +6,14 @@ public class Message {
 
     private StringBuilder fixLengthString;
 
+
+    private MessageField firstName = MessageField.createStringField("", 11, 30);
+    private MessageField lastName =  MessageField.createStringField( "", 31, 50);
+    private MessageField age =  MessageField.createNumberField(new BigDecimal(0), 135, 15);
+    private MessageField gender = MessageField.createStringField("", 70,1);
     public Message(){
-        fixLengthString = new StringBuilder(String.format("%100s"," "));
+        fixLengthString = new StringBuilder(MessageBlank.createBlankMessage());
     }
-    private MessageField firstName = MessageField.createStringField("Firtname", 10, 20);
-    private MessageField lastName =  MessageField.createStringField( "Lastname", 50, 20);
-    private MessageField age =  MessageField.createNumberField(new BigDecimal(12), 85, 15);
 
     public String getFixLengthString() {
         return fixLengthString.toString();
@@ -25,10 +27,15 @@ public class Message {
         this.lastName.setValue(lastName);
     }
 
+    public void setGender(String gender){
+        this.gender.setValue(gender);
+    }
+
     public String messageToString(){
         placeIntoFixLengthString(this.firstName);
         placeIntoFixLengthString(this.lastName);
         placeIntoFixLengthString(this.age);
+        placeIntoFixLengthString(this.gender);
         return fixLengthString.toString();
     }
 
