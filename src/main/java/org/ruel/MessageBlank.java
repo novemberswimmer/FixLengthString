@@ -13,10 +13,6 @@ public class MessageBlank  implements InitializingBean {
     private static final Integer FULL_MESSAGE_LENGTH = 150;
 
 
-    @Value("${application.id}")
-    private  String applicationIdProp;
-    @Value("${service.name}")
-    private  String serviceNameProp;
 
 
     private  String  applicationId;
@@ -31,6 +27,11 @@ public class MessageBlank  implements InitializingBean {
 
     private String messageBlank;
 
+    public MessageBlank(String applicationId, String serviceName){
+        this.serviceName = String.format("%-20s", serviceName);
+        this.applicationId = String.format("%-10s", applicationId);
+
+    }
 
     public  String createBlankMessage(){
         return messageBlank;
@@ -55,8 +56,6 @@ public class MessageBlank  implements InitializingBean {
     }
 
     private void initializedMessageFields() {
-        serviceName = String.format("%-20s", serviceNameProp);
-        applicationId = String.format("%-10s", applicationIdProp);
         field1 = String.format("%-10s"," ");
         field2 = String.format("%020d", 0);
         field3 = String.format("%-20s"," ");

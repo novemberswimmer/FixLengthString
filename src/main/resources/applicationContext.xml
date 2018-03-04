@@ -9,5 +9,8 @@
         <property name="locations" value="FixLengthString.properties" />
     </bean>
 
-    <context:component-scan base-package="org.ruel"/>
+   <bean id="messageBlank" class="org.ruel.MessageBlank">
+       <constructor-arg name="applicationId" value="${application.id}"/>
+       <constructor-arg name="serviceName" value="${service.name}"/>
+   </bean>
 </beans>
