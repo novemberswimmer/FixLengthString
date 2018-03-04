@@ -9,10 +9,12 @@ public class Message {
 
     private MessageField firstName = MessageField.createStringField("", 11, 30);
     private MessageField lastName =  MessageField.createStringField( "", 31, 50);
-    private MessageField age =  MessageField.createNumberField(new BigDecimal(0), 135, 15);
     private MessageField gender = MessageField.createStringField("", 70,1);
-    public Message(){
-        fixLengthString = new StringBuilder(MessageBlank.createBlankMessage());
+    private MessageField age =  MessageField.createNumberField(new BigDecimal(0), 136, 15);
+
+
+    public Message(String messageBlank){
+        fixLengthString = new StringBuilder(messageBlank);
     }
 
     public String getFixLengthString() {
